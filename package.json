@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install && cargo install --git https://github.com/FroVolod/bos-cli-rs && cargo install --git https://github.com/near/bos-loader",
+    "format": "prettier **/*.{js,jsx,ts,tsx} --write --ignore-unknown",
+    "download": "bos download nearhorizon.near network-config mainnet",
+    "deploy": "bos components deploy nearhorizon.near sign-as nearhorizon.near network-config mainnet sign-with-access-key-file ~/.near-credentials/mainnet/nearhorizon.near.json send",
+    "dev": "bos-loader --path ./src nearcon"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "npm-watch": "^0.11.0",
+    "prettier": "^2.8.7"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": "prettier --write --ignore-unknown"
+  }
+}
