@@ -1,4 +1,4 @@
-const ownerId = "nearcon";
+const ownerId = "nearcon23.near";
 const availableTabs = ["home", "register", "hackathon"];
 
 const getTab = (tab) => {

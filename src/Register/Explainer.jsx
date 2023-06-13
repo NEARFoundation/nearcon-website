@@ -1,4 +1,4 @@
-const ownerId = "nearcon";
+const ownerId = "nearcon23.near";
 
 const Container = styled.div`
   display: flex;
@@ -6,6 +6,10 @@ const Container = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   gap: 3em;
+
+  .red {
+    color: #ff7966;
+  }
 
   h2 {
     font-family: "FK Grotesk";
@@ -68,7 +72,7 @@ return (
     <h2>How it works</h2>
     <ol>
       <li>
-        Complete the form <span>(All fields required)</span>
+        Complete the form <span className="red">(All fields required)</span>
       </li>
       <li>
         You will be redirected to complete payment (via crypto or fiat currency)

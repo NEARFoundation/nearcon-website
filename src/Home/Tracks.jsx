@@ -1,4 +1,4 @@
-const ownerId = "nearcon";
+const ownerId = "nearcon23.near";
 
 const Container = styled.div`
   display: flex;

@@ -1,4 +1,4 @@
-const ownerId = "nearcon";
+const ownerId = "nearcon23.near";
 const label = props.label ?? "Account ID";
 const placeholder = props.placeholder ?? "Enter your account ID";
 const value = props.value ?? "";
