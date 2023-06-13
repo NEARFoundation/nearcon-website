@@ -3,8 +3,8 @@
   "scripts": {
     "prepare": "husky install && cargo install --git https://github.com/FroVolod/bos-cli-rs && cargo install --git https://github.com/near/bos-loader",
     "format": "prettier **/*.{js,jsx,ts,tsx} --write --ignore-unknown",
-    "download": "bos download nearhorizon.near network-config mainnet",
-    "deploy": "bos components deploy nearhorizon.near sign-as nearhorizon.near network-config mainnet sign-with-access-key-file ~/.near-credentials/mainnet/nearhorizon.near.json send",
+    "download": "bos components download nearcon23.near network-config mainnet",
+    "deploy": "bos components deploy nearcon23.near sign-as nearcon23.near network-config mainnet sign-with-access-key-file ~/.near-credentials/mainnet/nearcon23.near.json send",
     "dev": "bos-loader --path ./src nearcon23.near"
   },
   "devDependencies": {
