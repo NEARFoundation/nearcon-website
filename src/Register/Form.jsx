@@ -79,7 +79,7 @@ const Container = styled.div`
   }
 `;
 
-const SubmitButton = styled.button`
+const SubmitButton = styled.a`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -90,7 +90,41 @@ const SubmitButton = styled.button`
   border-radius: 50px;
   border: none;
   color: #ffffff;
+
+  &.disabled {
+    background: #717069 !important;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: #161615;
+    text-decoration: none;
+    color: #ffffff;
+  }
 `;
+
+const url = () => {
+  if (!isValid()) {
+    return "#";
+  }
+
+  let urlString = "https://tickets.nearcon.org/?";
+  urlString += `firstname=${state.firstName}&`;
+  urlString += `lastname=${state.lastName}&`;
+  urlString += `email=${state.email}&`;
+  urlString += `persona=${state.persona}&`;
+  urlString += `jobtitle=${state.jobTitle}&`;
+  urlString += `projectorcompany=${state.projectOrCompany}&`;
+  urlString += `country=${state.country}&`;
+  urlString += `age=${state.age}&`;
+  urlString += `goal=${state.goal}&`;
+  urlString += `twitter=${state.twitter}&`;
+  urlString += `telegram=${state.telegram}&`;
+  urlString += `paymentmethod=${state.paymentMethod}`;
+
+  return urlString;
+};
 
 return (
   <Container>
@@ -423,7 +457,7 @@ return (
         },
       }}
     />
-    <SubmitButton onClick={onSubmit} disabled={!isValid()}>
+    <SubmitButton href={url()} className={isValid() ? "" : "disabled"}>
       Submit
       <svg
         width="20"
