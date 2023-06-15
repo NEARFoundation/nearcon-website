@@ -103,7 +103,7 @@ return (
         props={{
           image: mapImage(alexS),
           name: "Alex Skidanov",
-          org: "Josnah AI",
+          org: "Jasnah AI",
         }}
       />
     </Speakers>
