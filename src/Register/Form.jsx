@@ -227,6 +227,8 @@ State.init({
   telegramError: "",
   paymentMethod: null,
   paymentMethodError: "",
+  referral: "",
+  referralError: "",
 });
 
 const isValid = () => {
@@ -254,7 +256,8 @@ const isValid = () => {
     state.telegram &&
     state.telegramError === "" &&
     state.paymentMethod &&
-    state.paymentMethodError === ""
+    state.paymentMethodError === "" &&
+    (!state.referral || state.referralError === "")
   );
 };
 
@@ -322,6 +325,10 @@ const url = () => {
     telegram: state.telegram,
     paymentmethod: state.paymentMethod,
   };
+
+  if (state.referral) {
+    meta.referral = state.referral;
+  }
 
   urlString += `meta=${JSON.stringify(meta)}`;
 
@@ -629,6 +636,26 @@ return (
           }
 
           State.update({ telegramError: "" });
+        },
+      }}
+    />
+    <Widget
+      src={`${ownerId}/widget/Inputs.Text`}
+      props={{
+        label: "Did anyone refer you? (Optional)",
+        value: state.referral,
+        error: state.referralError,
+        placeholder: "Enter referral",
+        onChange: (referral) => State.update({ referral }),
+        validate: () => {
+          if (state.referral.length > 100) {
+            State.update({
+              referralError: "Referral must be less than 100 characters",
+            });
+            return;
+          }
+
+          State.update({ referralError: "" });
         },
       }}
     />
