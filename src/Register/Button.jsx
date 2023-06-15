@@ -8,7 +8,7 @@ const Link = styled.a`
   padding: 10px 20px;
   width: 10.625em;
   gap: 0.5em;
-  border: none;
+  border: 1px solid #00ec97;
   border-radius: 50px;
   background: #00ec97;
   color: #11181c;
@@ -24,6 +24,7 @@ const Link = styled.a`
   &:active {
     text-decoration: none;
     background: #11181c;
+    border: 1px solid #11181c;
     color: #fff;
   }
 `;
