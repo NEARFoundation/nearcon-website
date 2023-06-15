@@ -36,6 +36,19 @@ const ButtonContainer = styled.div`
   align-items: flex-start;
   gap: 3em;
   margin-top: 2em;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1em;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 return (
