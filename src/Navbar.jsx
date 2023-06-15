@@ -102,6 +102,10 @@ const Info = styled.div`
   line-height: 1em;
   text-align: right;
   color: #666666;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const info = <Info>November 7-10, 2023 + Lisbon, Portugal</Info>;
