@@ -58,10 +58,10 @@ return (
   <Container>
     <Title>
       <h2>Two Locations. Four tracks.</h2>
-      <Widget
+      {/*<Widget
         src={`${ownerId}/widget/Home.BlackButton`}
         props={{ text: "View Full Schedule" }}
-      />
+      />*/}
     </Title>
     <Tracks>
       <Widget
@@ -81,12 +81,13 @@ return (
               />
             </svg>
           ),
-          title: "Devs/Builders",
+          title: "Developers",
           description: (
             <>
-              Take a deep dive into making the leap from Web2 to Web3 and more,
-              with talks and technical workshops on transitioning, speed,
-              scalability, and security.
+              Whether you’re a Web2 developer just getting started in the space
+              or a Web3 native who’s been here since the beginning, these talks
+              and technical workshops will meet you wherever you are on your
+              journey
             </>
           ),
           color: "#7269E1",
@@ -112,9 +113,9 @@ return (
           title: "Entrepreneurs",
           description: (
             <>
-              Interested in building successful Web3 applications and
-              businesses? Discover how with actionable insights for operators
-              and NEAR specific opportunities
+              An open web gives Web2 and Web3 businesses a new way to create
+              innovative products and solutions that change how they connect and
+              engage with their users. These talks will help show the way
             </>
           ),
           color: "#17D9D4",
@@ -140,8 +141,10 @@ return (
           title: "Creators",
           description: (
             <>
-              The creator economy is booming. We put the spotlight on artists
-              who are successfully using NEAR as their canvas.
+              The internet is fueled by creators, but Web2 made it difficult for
+              them to get discovered and fairly compensated for their work.
+              These tracks will show how an open web can turn that old system on
+              its head to foster an ethical passion economy
             </>
           ),
           color: "#00EC97",
@@ -164,11 +167,13 @@ return (
               />
             </svg>
           ),
-          title: "Regulators/Gov",
+          title: "Regulators",
           description: (
             <>
-              As we build a better world with NEAR, discover what regulations
-              will apply to finance and sustainability in the future.
+              The Web3 space continues to evolve, and as it does the rules and
+              regulations, continue to evolve as well. These talks will keep you
+              abreast of all of the latest policies, changes, and directions for
+              the future
             </>
           ),
           color: "#FF7966",

@@ -54,50 +54,52 @@ const Speakers = styled.div`
   }
 `;
 
-const placeholder =
-  "bafkreietk36kek3bls24eaiiesfyu7ulrwh6d6wubijkwwnkaouxhqq7ze";
+const illia = "bafkreietk36kek3bls24eaiiesfyu7ulrwh6d6wubijkwwnkaouxhqq7ze";
+const marieke = "bafkreid42v55z5yxdibholhalg5yjrlnezgebni3p3y2sz2yllccbsv2by";
+const alexC = "bafkreicf34idi2n54qvll52ec3b7ygnup4btr2spcqvewqcaimxri73uei";
+const alexS = "bafkreifcwn3jdxivwbkz2xzwct7eeyeqjit4otmn3msjg2ud7dlspmdw4y";
 const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
 
 return (
   <Container>
     <Title>
       <h2>Featured Speakers</h2>
-      <Widget
+      {/*<Widget
         src={`${ownerId}/widget/Home.BlackButton`}
         props={{ text: "View All Speakers" }}
-      />
+      />*/}
     </Title>
     <Speakers>
       <Widget
         src={`${ownerId}/widget/Home.SpeakerCard`}
         props={{
-          image: mapImage(placeholder),
+          image: mapImage(illia),
           name: "Illia Polosukhin",
-          org: "Near Protocol",
+          org: "NEAR Protocol",
         }}
       />
       <Widget
         src={`${ownerId}/widget/Home.SpeakerCard`}
         props={{
-          image: mapImage(placeholder),
-          name: "Illia Polosukhin",
-          org: "Near Protocol",
+          image: mapImage(marieke),
+          name: "Marieke Flament",
+          org: "NEAR Foundation",
         }}
       />
       <Widget
         src={`${ownerId}/widget/Home.SpeakerCard`}
         props={{
-          image: mapImage(placeholder),
-          name: "Illia Polosukhin",
-          org: "Near Protocol",
+          image: mapImage(alexC),
+          name: "Alex Chiocci",
+          org: "Pagoda",
         }}
       />
       <Widget
         src={`${ownerId}/widget/Home.SpeakerCard`}
         props={{
-          image: mapImage(placeholder),
-          name: "Illia Polosukhin",
-          org: "Near Protocol",
+          image: mapImage(alexS),
+          name: "Alex Skidanov",
+          org: "Josnah AI",
         }}
       />
     </Speakers>

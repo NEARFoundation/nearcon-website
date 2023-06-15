@@ -17,11 +17,11 @@ const Text = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 45%;
-  gap: 1em;
+  gap: 2em;
   padding: 0;
 
   h2 {
-    font-family: "FK Grotesk";
+    font-family: "Mona Sans";
     font-style: normal;
     font-weight: 500;
     font-size: 1.625em;
@@ -30,7 +30,7 @@ const Text = styled.div`
   }
 
   p {
-    font-family: "FK Grotesk";
+    font-family: "Mona Sans";
     font-style: normal;
     font-weight: 500;
     font-size: 0.9em;
@@ -39,10 +39,10 @@ const Text = styled.div`
   }
 
   ul {
-    font-family: "FK Grotesk";
+    font-family: "Mona Sans";
     font-style: normal;
     font-weight: 400;
-    font-size: 0.8em;
+    font-size: 16px;
     line-height: 1.25em;
     color: #000000;
     display: flex;
@@ -52,15 +52,6 @@ const Text = styled.div`
     list-style-position: outside;
     padding-left: 1em;
     gap: 0.5em;
-  }
-
-  span {
-    font-family: "FK Grotesk";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.8em;
-    line-height: 1.25em;
-    color: #000000;
   }
 `;
 
@@ -73,41 +64,53 @@ const Visual = styled.div`
   }
 `;
 
-const visual = "bafkreigmckcks34rdm4qfyzpnctjb5tz3pt66itrorprld3vm7azoxsgdi";
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3em;
+  margin-top: 2em;
+`;
+
+const visual = "bafkreifvatnpked4a364btyyyjmn46jngd44msyjyml5ik2qyvbop55msu";
 const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
 
 return (
   <Container>
     <Text>
-      <h2>Dreamers. Builders. Friends.</h2>
+      <h2>The biggest experience of the year is near</h2>
+
       <p>
-        Building on the success of last year, NEAR’s flagship event is back. And
-        this year it’s set to be bigger and better than ever.
+        Last year’s NEARCON was epic. This one will be iconic. We are going to
+        take you on a 4 day journey into an open web.
       </p>
       <ul>
         <li>
-          Join 2000+ delegates as we explore the limitless possibilities of
-          building a better world with NEAR.
+          Join 5,000+ delegates as we explore the power and possibilities of an
+          open web
         </li>
         <li>
-          Get up to speed on the NEAR ecosystem and the latest Web3 developments
-          and technologies.
+          Get inspired by talks from renowned authors, economists, artists,
+          politicians, developers, entrepreneurs, and more
         </li>
         <li>
-          Get inspired with talks from renowned authors, economists, A-list
-          artists, and politicians.
+          Explore the Blockchain Operating System (BOS), try it for yourself,
+          and find out why it's the driving force behind an open web
         </li>
         <li>
-          Get together and network with builders, collaborators, and makers
-          across a variety of industries.
+          Connect with projects, speakers, community members, builders, and
+          multi-chain enthusiasts from around the world
+        </li>
+        <li>
+          Hack the days and nights away for a chance to build on the BOS and win
+          $180k+
         </li>
       </ul>
-      <span>
-        Then get ready to groove the night away with our resident DJ. And if
-        you’re a hacker accepted for the hackathon, you’ll get a free conference
-        pass. Let’s build beyond the hype at NEARCON.
-      </span>
-      <Widget src={`${ownerId}/widget/Register.Button`} />
+      <ButtonContainer>
+        <Widget src={`${ownerId}/widget/Register.Button`} />
+        <Widget src={`${ownerId}/widget/Home.SpeakerButton`} />
+      </ButtonContainer>
     </Text>
     <Visual>
       <img

@@ -29,6 +29,15 @@ const Container = styled.div`
   }
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3em;
+  margin-top: 2em;
+`;
+
 return (
   <Container>
     <h2>More info coming soon</h2>
@@ -36,6 +45,9 @@ return (
       We’re working on the full list of partners, speakers, and sessions. Stay
       tuned!
     </p>
-    <Widget src={`${ownerId}/widget/Register.Button`} />
+    <ButtonContainer>
+      <Widget src={`${ownerId}/widget/Register.Button`} />
+      <Widget src={`${ownerId}/widget/Home.SpeakerButton`} />
+    </ButtonContainer>
   </Container>
 );

@@ -1,5 +1,3 @@
-const ownerId = "nearcon23.near";
-
 const Link = styled.a`
   display: flex;
   flex-direction: row;
@@ -8,28 +6,29 @@ const Link = styled.a`
   padding: 10px 20px;
   width: 10.625em;
   gap: 0.5em;
-  border: none;
-  border-radius: 50px;
-  background: #00ec97;
-  color: #11181c;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
   text-align: center;
   white-space: nowrap;
+  background: #ffffff;
+  border: 2px solid #0daebb;
+  font-family: "FK Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #0daebb;
+  border-radius: 100px;
   transition: all 0.3s ease-in-out;
 
   &:hover,
   &:focus,
   &:active {
     text-decoration: none;
-    background: #11181c;
+    background: #0daebb;
     color: #fff;
+  }
+
+  &:disabled {
+    background: #e5e5e5;
   }
 `;
 
-return (
-  <Link href={props.href ?? `/${ownerId}/widget/Index?tab=register`}>
-    Register
-  </Link>
-);
+return <Link href={props.href ?? "#"}>{props.text}</Link>;

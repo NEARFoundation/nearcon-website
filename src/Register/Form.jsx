@@ -112,16 +112,21 @@ const url = () => {
   let urlString = "https://tickets.nearcon.org/?";
   urlString += `firstname=${state.firstName}&`;
   urlString += `lastname=${state.lastName}&`;
-  urlString += `email=${state.email}&`;
-  urlString += `persona=${state.persona}&`;
-  urlString += `jobtitle=${state.jobTitle}&`;
-  urlString += `projectorcompany=${state.projectOrCompany}&`;
-  urlString += `country=${state.country}&`;
-  urlString += `age=${state.age}&`;
-  urlString += `goal=${state.goal}&`;
-  urlString += `twitter=${state.twitter}&`;
-  urlString += `telegram=${state.telegram}&`;
-  urlString += `paymentmethod=${state.paymentMethod}`;
+  urlString += `emailaddress=${state.email}&`;
+
+  const meta = {
+    persona: state.persona.value,
+    jobtitle: state.jobTitle,
+    projectorcompany: state.projectOrCompany,
+    country: state.country.value,
+    age: state.age,
+    goal: state.goal,
+    twitter: state.twitter,
+    telegram: state.telegram,
+    paymentmethod: state.paymentMethod,
+  };
+
+  urlString += `meta=${JSON.stringify(meta)}`;
 
   return urlString;
 };

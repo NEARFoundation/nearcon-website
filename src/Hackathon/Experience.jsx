@@ -24,27 +24,18 @@ const Text = styled.div`
     font-family: "FK Grotesk";
     font-style: normal;
     font-weight: 500;
-    font-size: 1.625em;
-    line-height: 1.5em;
-    color: #fff;
-  }
-
-  p {
-    font-family: "FK Grotesk";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 0.9em;
-    line-height: 1.25em;
-    color: #fff;
+    font-size: 32px;
+    line-height: 41px;
+    color: #ffffff;
   }
 
   ul {
-    font-family: "FK Grotesk";
+    font-family: "Mona Sans";
     font-style: normal;
-    font-weight: 400;
-    font-size: 0.8em;
-    line-height: 1.25em;
-    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 170%;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -55,12 +46,12 @@ const Text = styled.div`
   }
 
   span {
-    font-family: "FK Grotesk";
+    font-family: "Mona Sans";
     font-style: normal;
-    font-weight: 400;
-    font-size: 0.8em;
-    line-height: 1.25em;
-    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 170%;
+    color: #ffffff;
   }
 `;
 
@@ -73,7 +64,7 @@ const Visual = styled.div`
   }
 `;
 
-const visual = "bafkreibhnkloh7lo7rsastrwdjsnibh7p6mjyjqazmiyny257wmx5sdsli";
+const visual = "bafkreia5u5fz6nbxmdkqg7xgvg5hc4sfnkbero2dosrnlf5rav5aqfyar4";
 const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
 
 return (

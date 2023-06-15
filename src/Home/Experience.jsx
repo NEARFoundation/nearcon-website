@@ -33,25 +33,11 @@ const Text = styled.div`
     font-family: "FK Grotesk";
     font-style: normal;
     font-weight: 500;
-    font-size: 0.9em;
-    line-height: 1.25em;
-    color: #fff;
-  }
-
-  ul {
-    font-family: "FK Grotesk";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.8em;
-    line-height: 1.25em;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    list-style-position: outside;
-    padding-left: 1em;
-    gap: 0.5em;
+    font-size: 20px;
+    line-height: 130%;
+    leading-trim: both;
+    text-edge: cap;
+    color: #00ec97;
   }
 
   span {
@@ -73,7 +59,7 @@ const Visual = styled.div`
   }
 `;
 
-const visual = "bafkreibhnkloh7lo7rsastrwdjsnibh7p6mjyjqazmiyny257wmx5sdsli";
+const visual = "bafkreiaqboqcc33v2ce422dtoa3iepmwalckl7u62n7einhfuobx6il4cy";
 const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
 
 return (
@@ -85,35 +71,46 @@ return (
       />
     </Visual>
     <Text>
-      <h2>At Nearcon, you’ll experience</h2>
+      <h2>What to expect on your way</h2>
       <div>
-        <p>Lasting Connections</p>
+        <p>Powerful insights</p>
         <span>
-          Networking opportunities to connect and build lasting relationships
-          with the NEAR Community and Ecosystem.
+          NEAR is constantly pushing boundaries, so are our speakers. Hear from
+          leading voices about the BOS, AI, the future of Web3, why an open web
+          matters, user-experience, governance, sustainability, NFTs, DeFI,
+          gaming, and much more.
         </span>
       </div>
 
       <div>
-        <p>Range of Discussions</p>
+        <p>Deep connections</p>
         <span>
-          Talks on Future of Finance, NFTs, Governance, Sustainability, Gaming,
-          Protocol Updates, Developer Tools, and more.
+          The NEAR community is one of a kind. Over the course of the event,
+          there will be chances to network and collaborate, exciting
+          conversations about all things NEAR, opportunities to learn from one
+          another, and plenty of time to celebrate together.
         </span>
       </div>
 
       <div>
-        <p>IRL Hackathon</p>
+        <p>Dynamic hackathon</p>
         <span>
-          Hackers get in free :) Win prizes, get onstage for a live “Dragon’s
-          Den” with crypto titans, and most importantly… have fun building!
+          We have the best devs in the world (if we do say so ourselves). Build
+          directly on the BOS and experience all of its capabilities, while
+          getting a chance to win prizes and get your project featured onstage.
+          And, hackers get into the event for Free! Apply here.
         </span>
       </div>
 
-      <span>
-        Join the Official NEARCON Telegram channel and connect with other
-        Ecosystem members before the event.
-      </span>
+      <div>
+        <p> One-of-a-kind experience </p>
+        <span>
+          NEAR isn’t just another blockchain, so NEARCON isn’t just another
+          conference. NEARCON was created to be a community driven event that
+          brings people together over their shared passion for NEAR, and a
+          shared vision of a more free, fair, and open web.
+        </span>
+      </div>
       <Widget src={`${ownerId}/widget/Register.Button`} />
     </Text>
   </Container>

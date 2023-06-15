@@ -11,9 +11,9 @@ const Container = styled.a`
     font-family: "FK Grotesk";
     font-style: normal;
     font-weight: 700;
-    font-size: 1em;
-    line-height: 1.5em;
-    color: #000;
+    font-size: 24px;
+    line-height: 40px;
+    color: #000000;
   }
 
   p {

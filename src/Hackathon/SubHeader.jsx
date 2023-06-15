@@ -17,33 +17,24 @@ const Text = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 45%;
-  gap: 1em;
+  gap: 2em;
   padding: 0;
 
   h2 {
     font-family: "FK Grotesk";
     font-style: normal;
     font-weight: 500;
-    font-size: 1.625em;
-    line-height: 1.5em;
+    font-size: 32px;
+    line-height: 41px;
     color: #000000;
   }
 
   p {
-    font-family: "FK Grotesk";
+    font-family: "Mona Sans";
     font-style: normal;
-    font-weight: 500;
-    font-size: 0.9em;
-    line-height: 1.25em;
-    color: #000000;
-  }
-
-  span {
-    font-family: "FK Grotesk";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.8em;
-    line-height: 1.25em;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 170%;
     color: #000000;
   }
 `;
@@ -57,7 +48,7 @@ const Visual = styled.div`
   }
 `;
 
-const visual = "bafkreidf777636npp5tnkig5o6fuugnpbi7t6papqjgcudodadywxn7vpy";
+const visual = "bafkreigb3ogykrekiamghhts5dwf2sq25xdzdvsinvvtjitzmxxccp7csq";
 const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
 
 return (
@@ -65,17 +56,16 @@ return (
     <Text>
       <h2>Building a multi-chain, open web future.</h2>
       <p>
-        NEAR is inviting hackers to join us during NEARCON this year, Sep 11-14,
-        in Lisbon, for an intensive 48 hour IRL hackathon. Win prizes, get
-        onstage for a live “Dragon’s Den” with crypto titans, and most
-        importantly… have fun building!
+        The NEARCON hackathon is a 48-hour IRL hacking session for those who
+        want to team up, get familiar with NEAR, build a prototype for their
+        project, pitch it, and get a chance to win.
       </p>
-      <span>
-        Teams of size 1-5 from all backgrounds are welcome to apply. As space is
-        limited, priority will be given to early applicants with clear
-        credentials, strong intentions to attend in person, and produce a great
-        Web3 hack! Let’s build!
-      </span>
+      <p>
+        The hackathon can be the start of something amazing, or a way to fail
+        fast, learn, and adapt. We appreciate both, because we know that to
+        build the next big thing you often have to fail enough times to find
+        just the right idea.
+      </p>
       <Widget src={`${ownerId}/widget/Hackathon.Button`} />
     </Text>
     <Visual>
