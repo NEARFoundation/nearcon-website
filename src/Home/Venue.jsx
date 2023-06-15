@@ -9,6 +9,10 @@ const Container = styled.div`
   padding: 3.5em 3.5em 4.5em;
   gap: 3em;
   background: #f2f1ea;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Text = styled.div`
@@ -19,6 +23,10 @@ const Text = styled.div`
   width: 33%;
   gap: 2em;
   padding: 0;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 
   h2 {
     font-family: "FK Grotesk";
@@ -47,6 +55,10 @@ const Visual = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 2em;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 
   img {
     width: 100%;

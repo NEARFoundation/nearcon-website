@@ -25,4 +25,6 @@ const Link = styled.a`
   }
 `;
 
-return <Link href={props.href ?? "#"}>Apply to Speak</Link>;
+return (
+  <Link href="https://airtable.com/shru9TnZ53F7qZT9C">Apply to Speak</Link>
+);

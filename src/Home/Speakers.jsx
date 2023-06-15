@@ -36,6 +36,10 @@ const Speakers = styled.div`
   flex-wrap: wrap;
   width: 100%;
 
+  @media screen and (max-width: 768px) {
+    gap: 1em;
+  }
+
   a {
     width: 100%;
     margin: 0;

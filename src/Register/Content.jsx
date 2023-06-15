@@ -9,14 +9,26 @@ const Container = styled.div`
   padding: 3.5em 3.5em 4.5em;
   gap: 3em;
   background: #fff;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Explainer = styled.div`
   width: 45%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Form = styled.div`
   width: 55%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 return (

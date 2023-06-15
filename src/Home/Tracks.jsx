@@ -36,6 +36,10 @@ const Tracks = styled.div`
   flex-wrap: wrap;
   width: 100%;
 
+  @media screen and (max-width: 768px) {
+    gap: 1em;
+  }
+
   div {
     width: 100%;
     margin: 0;
