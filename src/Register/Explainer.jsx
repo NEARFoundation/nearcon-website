@@ -80,7 +80,7 @@ return (
       <li>You will receive your NFT ticket via your wallet</li>
     </ol>
     <div>
-      <span>Ticketing solultions by</span>
+      <span>Ticketing solutions by</span>
       <div>
         <a
           href="https://veriken.com/"
