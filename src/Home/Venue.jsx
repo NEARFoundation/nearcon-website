@@ -110,7 +110,7 @@ return (
     <Visual>
       <img src={mapImage(palace)} alt="NEARCON Palace" />
       <p>
-        <b>NEARCON Palace:</b>
+        <b>Nearcon HQ:</b>
         <br />
         Convento Do Beato
         <br />
@@ -122,7 +122,7 @@ return (
     <Visual>
       <img src={mapImage(haven)} alt="NEARCON Haven" />
       <p>
-        <b>NEARCON Haven:</b>
+        <b>Hacker HQ:</b>
         <br />
         Armazem 16
         <br />
