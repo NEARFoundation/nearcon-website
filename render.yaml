@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: nearcon-api
+    runtime: rust
+    region: frankfurt
+    plan: starter
+    branch: main
+    rootDir: ./api
+    buildCommand: cargo build --release
+    startCommand: cargo run --release
+    pullRequestPreviewsEnabled: true
+    buildFilter:
+      paths:
+        - api/**/*
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: production
+          property: connectionString
+
+databases:
+  - name: production
+    region: frankfurt
+    plan: starter
+    databaseName: nearcon-data
+    user: nearcon
+    postgresMajorVersion: 15
