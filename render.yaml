@@ -22,6 +22,6 @@ databases:
   - name: production
     region: frankfurt
     plan: starter
-    databaseName: nearcon-data
+    databaseName: nearcon_data
     user: nearcon
     postgresMajorVersion: 15
