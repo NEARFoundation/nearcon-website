@@ -1,4 +1,4 @@
-const Link = styled.a`
+const Anchor = styled.a`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -31,4 +31,4 @@ const Link = styled.a`
   }
 `;
 
-return <Link href={props.href ?? "#"}>{props.text}</Link>;
+return <Anchor href={props.href ?? "#"}>{props.text}</Anchor>;

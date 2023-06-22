@@ -1,6 +1,6 @@
 const ownerId = "nearcon23.near";
 
-const Link = styled.a`
+const Anchor = styled.a`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -28,4 +28,6 @@ const Link = styled.a`
   }
 `;
 
-return <Link href="https://nearcon-hackathon.devpost.com/">Apply to hack</Link>;
+return (
+  <Anchor href="https://nearcon-hackathon.devpost.com/">Apply to hack</Anchor>
+);

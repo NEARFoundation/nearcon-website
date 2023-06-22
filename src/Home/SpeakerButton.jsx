@@ -1,4 +1,4 @@
-const Link = styled.a`
+const Anchor = styled.a`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -26,5 +26,5 @@ const Link = styled.a`
 `;
 
 return (
-  <Link href="https://airtable.com/shru9TnZ53F7qZT9C">Apply to Speak</Link>
+  <Anchor href="https://airtable.com/shru9TnZ53F7qZT9C">Apply to Speak</Anchor>
 );

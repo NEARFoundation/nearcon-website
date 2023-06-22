@@ -1,6 +1,6 @@
 const ownerId = "nearcon23.near";
 
-const Link = styled.a`
+const Anchor = styled.a`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -30,7 +30,7 @@ const Link = styled.a`
 `;
 
 return (
-  <Link href={props.href ?? `/${ownerId}/widget/Index?tab=register`}>
+  <Anchor href={props.href ?? `/${ownerId}/widget/Index?tab=register`}>
     Register
-  </Link>
+  </Anchor>
 );
