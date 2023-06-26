@@ -304,6 +304,13 @@ const SubmitButton = styled.a`
   }
 `;
 
+const encode = (data) => {
+  return data.replaceAll(
+    /[^A–Za-z0-9_.!~*'()-]/g,
+    (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`
+  );
+};
+
 const url = () => {
   if (!isValid()) {
     return "#";
@@ -330,7 +337,10 @@ const url = () => {
     meta.referral = state.referral;
   }
 
-  urlString += `meta=${JSON.stringify(meta)}`;
+  const stringified = JSON.stringify(meta);
+  const encoded = encode(stringified);
+
+  urlString += `meta=${encoded}`;
 
   return urlString;
 };
