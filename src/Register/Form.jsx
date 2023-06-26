@@ -225,8 +225,6 @@ State.init({
   twitterError: "",
   telegram: "",
   telegramError: "",
-  paymentMethod: null,
-  paymentMethodError: "",
   referral: "",
   referralError: "",
 });
@@ -247,17 +245,12 @@ const isValid = () => {
     state.projectOrCompanyError === "" &&
     state.country &&
     state.countryError === "" &&
-    state.age &&
-    state.ageError === "" &&
     state.goal &&
     state.goalError === "" &&
-    state.twitter &&
-    state.twitterError === "" &&
-    state.telegram &&
-    state.telegramError === "" &&
-    state.paymentMethod &&
-    state.paymentMethodError === "" &&
-    (!state.referral || state.referralError === "")
+    (!state.referral || state.referralError === "") &&
+    (!state.age || state.ageError === "") &&
+    (!state.twitter || state.twitterError === "") &&
+    (!state.telegram || state.telegramError === "")
   );
 };
 
@@ -326,16 +319,14 @@ const url = () => {
     jobtitle: state.jobTitle,
     projectorcompany: state.projectOrCompany,
     country: state.country.value,
-    age: state.age,
     goal: state.goal,
-    twitter: state.twitter,
-    telegram: state.telegram,
-    paymentmethod: state.paymentMethod,
   };
 
-  if (state.referral) {
-    meta.referral = state.referral;
-  }
+  ["age", "twitter", "telegram", "referral"].forEach((key) => {
+    if (state[key]) {
+      meta[key] = state[key];
+    }
+  });
 
   const stringified = JSON.stringify(meta);
   const encoded = encode(stringified);
@@ -544,7 +535,7 @@ return (
     <Widget
       src={`${ownerId}/widget/Inputs.Number`}
       props={{
-        label: "Age",
+        label: "Age (Optional)",
         value: state.age,
         error: state.ageError,
         placeholder: "Enter Age",
@@ -598,7 +589,7 @@ return (
     <Widget
       src={`${ownerId}/widget/Inputs.Text`}
       props={{
-        label: "Twitter",
+        label: "Twitter (Optional)",
         value: state.twitter,
         error: state.twitterError,
         placeholder: "Enter Twitter",
@@ -625,7 +616,7 @@ return (
     <Widget
       src={`${ownerId}/widget/Inputs.Text`}
       props={{
-        label: "Telegram",
+        label: "Telegram (Optional)",
         value: state.telegram,
         error: state.telegramError,
         placeholder: "Enter Telegram",
@@ -666,29 +657,6 @@ return (
           }
 
           State.update({ referralError: "" });
-        },
-      }}
-    />
-    <Widget
-      src={`${ownerId}/widget/Inputs.RadioGroup`}
-      props={{
-        items: [
-          { value: "near", name: "NEAR" },
-          { value: "fiat", name: "Fiat (USD, etc.)" },
-        ],
-        value: state.paymentMethod,
-        error: state.paymentMethodError,
-        label: "I would like to pay with...",
-        onChange: (paymentMethod) => State.update({ paymentMethod }),
-        validate: () => {
-          if (!state.paymentMethod) {
-            State.update({
-              paymentMethodError: "Please select a payment method",
-            });
-            return;
-          }
-
-          State.update({ paymentMethodError: "" });
         },
       }}
     />
