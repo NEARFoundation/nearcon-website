@@ -5,7 +5,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 3em;
+  gap: 2rem;
 
   .red {
     color: #ff7966;
@@ -18,6 +18,21 @@ const Container = styled.div`
     font-size: 2em;
     line-height: 1.5em;
     color: #000000;
+  }
+
+  ul {
+    color: var(--black, #000);
+    font-size: 1rem;
+    font-family: Mona Sans;
+    font-weight: 600;
+    line-height: 170%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5em;
+    list-style-position: outside;
+    padding-left: 1.25em;
   }
 
   ol {
@@ -69,6 +84,18 @@ const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
 
 return (
   <Container>
+    <h2>What you get</h2>
+    <ul>
+      <li>3 days of access to both Nearcon HQ and Hacker HQ venues</li>
+      <li>
+        200+ content sessions spanning Technical updates, AI, Gaming, Loyalty,
+        Regulation and much more
+      </li>
+      <li>Entry to Nearcon opening and closing parties</li>
+      <li>Exclusive swag, merchandise, and airdrops</li>
+      <li>Networking with founders, builders, and VCs</li>
+      <li>Some other surprises in store!</li>
+    </ul>
     <h2>How it works</h2>
     <ol>
       <li>
@@ -77,7 +104,11 @@ return (
       <li>
         You will be redirected to complete payment (via crypto or fiat currency)
       </li>
-      <li>You will receive your NFT ticket via your wallet</li>
+      <li>
+        You will receive a receipt of purchase and your ticket will be sent to
+        you later leading up to the event (because we’re working on some special
+        onboarding experiences)
+      </li>
     </ol>
     <div>
       <span>Ticketing solutions by</span>
