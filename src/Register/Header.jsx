@@ -23,12 +23,18 @@ const Container = styled.div`
     font-size: 1.25em;
     line-height: 140%;
     color: #00ec97;
+
+    & > span {
+      color: #fff;
+    }
   }
 `;
 
 return (
   <Container>
     <h1>Register</h1>
-    <p>Early bird tickets are live for $79</p>
+    <p>
+      Early bird tickets are live for <span>$79</span>
+    </p>
   </Container>
 );
