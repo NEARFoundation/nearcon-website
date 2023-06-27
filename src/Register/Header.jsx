@@ -29,6 +29,6 @@ const Container = styled.div`
 return (
   <Container>
     <h1>Register</h1>
-    <p>We’re excited to see you in Lisbon.</p>
+    <p>Early bird tickets are live for $79</p>
   </Container>
 );
