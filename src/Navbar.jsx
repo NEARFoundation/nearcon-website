@@ -6,7 +6,7 @@ const Navbar = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0 0 0;
+  padding: 0.75rem 0 2.5rem 0;
   flex: none;
   order: 0;
   align-self: stretch;
@@ -14,6 +14,7 @@ const Navbar = styled.div`
   position: sticky;
   top: 0;
   transform: translateY(-1em);
+  max-height: 2.5em;
 `;
 
 const LogoArea = styled.a`
@@ -26,6 +27,7 @@ const LogoArea = styled.a`
   font-size: 1em;
   line-height: 1em;
   color: #11181c;
+  transform: translateY(0.675em);
 
   &:hover {
     text-decoration: none;
