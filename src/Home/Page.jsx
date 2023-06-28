@@ -7,7 +7,7 @@ return (
     <Widget src={`${ownerId}/widget/Home.Venue`} />
     <Widget src={`${ownerId}/widget/Home.Experience`} />
     <Widget src={`${ownerId}/widget/Home.Tracks`} />
-    <Widget src={`${ownerId}/widget/Home.Speakers`} />
+    <Widget src={`${ownerId}/widget/Home.Sponsors`} />
     <Widget src={`${ownerId}/widget/Home.More`} />
   </>
 );

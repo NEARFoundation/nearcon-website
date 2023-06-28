@@ -4,7 +4,7 @@ const Anchor = styled.a`
   justify-content: center;
   align-items: center;
   padding: 0.625em 1.25em;
-  width: 10.625em;
+  min-width: 10.625em;
   gap: 0.5em;
   border: none;
   border-radius: 50px;
