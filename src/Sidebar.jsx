@@ -243,6 +243,55 @@ const Root = styled("Collapsible.Root")`
   }
 `;
 
+const Divider = styled.hr`
+  background-color: #eceef0;
+  height: 1px;
+  border: none;
+  width: 100%;
+`;
+
+const content = (
+  <NavContainer>
+    {navItem({
+      text: "Home",
+      id: "home",
+      icon: home,
+      iconSelected: homeSelected,
+    })}
+    {navItem({
+      text: "Register",
+      id: "register",
+      icon: register,
+      iconSelected: registerSelected,
+    })}
+    {navItem({
+      text: "Hackathon",
+      id: "hackathon",
+      icon: hackathon,
+      iconSelected: hackathonSelected,
+    })}
+    <Divider />
+    <NavItem href="https://t.me/nearcon">
+      <svg
+        width="25"
+        height="24"
+        viewBox="0 0 25 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9.59 9C9.8251 8.33167 10.2892 7.76811 10.9 7.40913C11.5108 7.05016 12.2289 6.91894 12.9272 7.03871C13.6255 7.15849 14.2588 7.52152 14.7151 8.06353C15.1713 8.60553 15.4211 9.29152 15.42 10C15.42 12 12.42 13 12.42 13M12.5 17H12.51M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z"
+          stroke="#3A3F42"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span>Help</span>
+    </NavItem>
+  </NavContainer>
+);
+
 if (props.collapsible) {
   return (
     <Root>
@@ -263,51 +312,9 @@ if (props.collapsible) {
           />
         </svg>
       </Trigger>
-      <Content>
-        <NavContainer>
-          {navItem({
-            text: "Home",
-            id: "home",
-            icon: home,
-            iconSelected: homeSelected,
-          })}
-          {navItem({
-            text: "Register",
-            id: "register",
-            icon: register,
-            iconSelected: registerSelected,
-          })}
-          {navItem({
-            text: "Hackathon",
-            id: "hackathon",
-            icon: hackathon,
-            iconSelected: hackathonSelected,
-          })}
-        </NavContainer>
-      </Content>
+      <Content>{content}</Content>
     </Root>
   );
 }
 
-return (
-  <NavContainer>
-    {navItem({
-      text: "Home",
-      id: "home",
-      icon: home,
-      iconSelected: homeSelected,
-    })}
-    {navItem({
-      text: "Register",
-      id: "register",
-      icon: register,
-      iconSelected: registerSelected,
-    })}
-    {navItem({
-      text: "Hackathon",
-      id: "hackathon",
-      icon: hackathon,
-      iconSelected: hackathonSelected,
-    })}
-  </NavContainer>
-);
+return content;
