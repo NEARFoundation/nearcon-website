@@ -13,7 +13,7 @@ const Navbar = styled.div`
   flex-grow: 0;
   position: sticky;
   top: 0;
-  transform: translateY(-1em);
+  margin-bottom: 0.75rem;
   max-height: 2.5em;
 `;
 
