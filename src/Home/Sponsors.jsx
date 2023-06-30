@@ -5,7 +5,7 @@ const apiKey =
 const Section = styled.div`
   display: flex;
   width: 100%;
-  padding: 3.125rem 3.125rem 5rem 3.125rem;
+  padding: 3.125rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 3rem;
