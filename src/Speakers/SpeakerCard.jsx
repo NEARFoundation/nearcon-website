@@ -9,7 +9,7 @@ const Container = styled.div`
 
   h3 {
     color: var(--black, #000);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: FK Grotesk;
     font-style: normal;
     font-weight: 700;
