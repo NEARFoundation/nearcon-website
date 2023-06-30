@@ -322,7 +322,7 @@ const url = () => {
     goal: state.goal,
   };
 
-  ["age", "twitter", "telegram", "referral"].forEach((key) => {
+  ["age", "twitter", "telegram", "referral", "accountId"].forEach((key) => {
     if (state[key]) {
       meta[key] = state[key];
     }
