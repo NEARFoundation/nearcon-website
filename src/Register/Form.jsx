@@ -448,7 +448,7 @@ return (
     <Widget
       src={`${ownerId}/widget/Inputs.AccountId`}
       props={{
-        label: "NEAR Account",
+        label: "NEAR Account (optional)",
         value: state.accountId,
         onChange: (accountId) => State.update({ accountId }),
         setError: (accountIdError) => State.update({ accountIdError }),
