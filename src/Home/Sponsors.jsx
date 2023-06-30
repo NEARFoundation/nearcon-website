@@ -1,4 +1,6 @@
 const ownerId = "nearcon23.near";
+const apiKey =
+  "patWQQ6FY8H5O8wTY.4b08b48ac31aa13eb9fea974cfa60e103ae7297c010d4fe752e1abb37bd24c9d";
 
 const Section = styled.div`
   display: flex;
@@ -22,6 +24,12 @@ const Section = styled.div`
       font-family: FK Grotesk;
       font-weight: 500;
     }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
   }
 `;
 
@@ -29,8 +37,7 @@ const Logos = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
-  row-gap: 3rem;
-  column-gap: auto;
+  gap: 3rem;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
@@ -39,10 +46,35 @@ const Logos = styled.div`
   @media screen and (max-width: 480px) {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  & > img {
+    width: 100%;
+    object-fit: contain;
+  }
 `;
 
-const brave = "bafkreiezfk3sxsnr3vzzttmrfoejj2tjrin5patomf6kttagn4y6i4dqne";
-const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
+State.init({
+  sponsors: [],
+  sponsorsIsFetched: false,
+});
+
+if (!state.sponsorsIsFetched) {
+  asyncFetch(
+    "https://api.airtable.com/v0/appcR9zt96Wv7VXWl/tbl7lCj23rJIOSPA9?fields%5B%5D=Image",
+    {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
+    }
+  ).then(({ body }) => {
+    State.update({
+      sponsors: body.records.map((record) => record.fields.Image[0].url),
+      sponsorsIsFetched: true,
+    });
+  });
+
+  return <>Loading...</>;
+}
 
 return (
   <Section>
@@ -54,8 +86,8 @@ return (
       />
     </div>
     <Logos>
-      {[...Array(15).keys()].map(() => (
-        <img src={mapImage(brave)} />
+      {state.sponsors.map((src) => (
+        <img src={src} />
       ))}
     </Logos>
   </Section>
