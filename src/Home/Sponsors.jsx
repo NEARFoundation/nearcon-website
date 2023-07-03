@@ -82,7 +82,10 @@ return (
       <h2>Last year’s Sponsors</h2>
       <Widget
         src={`${ownerId}/widget/Home.BlackButton`}
-        props={{ text: "Become a 2023 Sponsor/Partner" }}
+        props={{
+          text: "Become a 2023 Sponsor/Partner",
+          href: "http://bit.ly/sponsor-nearcon",
+        }}
       />
     </div>
     <Logos>
