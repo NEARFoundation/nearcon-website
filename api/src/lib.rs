@@ -6,6 +6,7 @@ use axum::{
     Json, Router,
 };
 use serde::{Deserialize, Serialize};
+use sqlx::FromRow;
 
 #[derive(Clone)]
 pub struct AppState {
@@ -20,7 +21,20 @@ pub enum ChangeStatus {
     None,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+impl TryFrom<String> for ChangeStatus {
+    type Error = String;
+
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        match value.as_str() {
+            "Pending" => Ok(ChangeStatus::Pending),
+            "Approved" => Ok(ChangeStatus::Approved),
+            "None" => Ok(ChangeStatus::None),
+            _ => Err(format!("Could not parse {} into ChangeStatus", value)),
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, FromRow)]
 pub struct User {
     #[serde(default, skip_deserializing)]
     pub id: i32,
@@ -33,6 +47,7 @@ pub struct User {
     pub job_title: String,
     pub project_or_company: String,
     pub country: String,
+    #[sqlx(try_from = "i16")]
     pub age: u8,
     pub goal: String,
     #[serde(default)]
@@ -44,6 +59,7 @@ pub struct User {
     #[serde(default, skip)]
     pub public_key: String,
     #[serde(default, skip)]
+    #[sqlx(try_from = "String")]
     pub change_status: ChangeStatus,
 }
 
@@ -52,7 +68,7 @@ async fn create(
     State(AppState { pool }): State<AppState>,
     Json(data): Json<User>,
 ) -> Result<Json<User>, (StatusCode, String)> {
-    let row = sqlx::query!(
+    sqlx::query_as(
         r#"
         INSERT INTO
           users (
@@ -106,22 +122,22 @@ async fn create(
           public_key,
           change_status
         "#,
-        data.first_name,
-        data.last_name,
-        data.email,
-        data.persona,
-        data.account_id,
-        data.job_title,
-        data.project_or_company,
-        data.country,
-        data.age as i16,
-        data.goal,
-        data.twitter,
-        data.telegram,
-        data.referral,
-        data.public_key,
-        serde_json::to_string(&data.change_status).unwrap_or_default()
     )
+    .bind(data.first_name)
+    .bind(data.last_name)
+    .bind(data.email)
+    .bind(data.persona)
+    .bind(data.account_id)
+    .bind(data.job_title)
+    .bind(data.project_or_company)
+    .bind(data.country)
+    .bind(data.age as i16)
+    .bind(data.goal)
+    .bind(data.twitter)
+    .bind(data.telegram)
+    .bind(data.referral)
+    .bind(data.public_key)
+    .bind(serde_json::to_string(&data.change_status).unwrap_or_default())
     .fetch_one(&pool)
     .await
     .map_err(|e| {
@@ -129,26 +145,8 @@ async fn create(
             StatusCode::INTERNAL_SERVER_ERROR,
             format!("Could not insert into db: {e:?}"),
         )
-    })?;
-
-    Ok(Json(User {
-        id: row.id,
-        account_id: row.account_id,
-        age: row.age as u8,
-        change_status: serde_json::from_str(&row.change_status).unwrap_or_default(),
-        country: row.country,
-        email: row.email,
-        first_name: row.first_name,
-        goal: row.goal,
-        job_title: row.job_title,
-        last_name: row.last_name,
-        persona: row.persona,
-        project_or_company: row.project_or_company,
-        public_key: row.public_key,
-        referral: row.referral,
-        telegram: row.telegram,
-        twitter: row.twitter,
-    }))
+    })
+    .map(Json)
 }
 
 #[debug_handler(state = AppState)]
@@ -157,7 +155,7 @@ async fn change_owner(
     Path(public_key): Path<String>,
     Json(data): Json<User>,
 ) -> Result<Json<User>, (StatusCode, String)> {
-    let row = sqlx::query!(
+    sqlx::query_as(
         r#"
         UPDATE
           users
@@ -195,22 +193,22 @@ async fn change_owner(
           telegram,
           twitter
         "#,
-        public_key,
-        data.account_id,
-        data.age as i16,
-        serde_json::to_string(&ChangeStatus::Pending).unwrap_or_default(),
-        data.country,
-        data.email,
-        data.first_name,
-        data.goal,
-        data.job_title,
-        data.last_name,
-        data.persona,
-        data.project_or_company,
-        data.referral,
-        data.telegram,
-        data.twitter
     )
+    .bind(public_key)
+    .bind(data.account_id)
+    .bind(data.age as i16)
+    .bind(serde_json::to_string(&ChangeStatus::Pending).unwrap_or_default())
+    .bind(data.country)
+    .bind(data.email)
+    .bind(data.first_name)
+    .bind(data.goal)
+    .bind(data.job_title)
+    .bind(data.last_name)
+    .bind(data.persona)
+    .bind(data.project_or_company)
+    .bind(data.referral)
+    .bind(data.telegram)
+    .bind(data.twitter)
     .fetch_one(&pool)
     .await
     .map_err(|e| {
@@ -218,26 +216,8 @@ async fn change_owner(
             StatusCode::INTERNAL_SERVER_ERROR,
             format!("Could not update row: {e:?}"),
         )
-    })?;
-
-    Ok(Json(User {
-        id: row.id,
-        account_id: row.account_id,
-        age: row.age as u8,
-        change_status: serde_json::from_str(&row.change_status).unwrap_or_default(),
-        country: row.country,
-        email: row.email,
-        first_name: row.first_name,
-        goal: row.goal,
-        job_title: row.job_title,
-        last_name: row.last_name,
-        persona: row.persona,
-        project_or_company: row.project_or_company,
-        public_key: row.public_key,
-        referral: row.referral,
-        telegram: row.telegram,
-        twitter: row.twitter,
-    }))
+    })
+    .map(Json)
 }
 
 #[debug_handler(state = AppState)]
@@ -245,7 +225,7 @@ async fn get_user(
     State(AppState { pool }): State<AppState>,
     Path(public_key): Path<String>,
 ) -> Result<Json<User>, (StatusCode, String)> {
-    let row = sqlx::query!(
+    sqlx::query_as(
         r#"
         SELECT
           id,
@@ -269,8 +249,8 @@ async fn get_user(
         WHERE
           public_key = $1
         "#,
-        public_key
     )
+    .bind(public_key)
     .fetch_one(&pool)
     .await
     .map_err(|e| {
@@ -278,26 +258,8 @@ async fn get_user(
             StatusCode::INTERNAL_SERVER_ERROR,
             format!("Could not get user: {e:?}"),
         )
-    })?;
-
-    Ok(Json(User {
-        id: row.id,
-        account_id: row.account_id,
-        age: row.age as u8,
-        change_status: serde_json::from_str(&row.change_status).unwrap_or_default(),
-        country: row.country,
-        email: row.email,
-        first_name: row.first_name,
-        goal: row.goal,
-        job_title: row.job_title,
-        last_name: row.last_name,
-        persona: row.persona,
-        project_or_company: row.project_or_company,
-        public_key: row.public_key,
-        referral: row.referral,
-        telegram: row.telegram,
-        twitter: row.twitter,
-    }))
+    })
+    .map(Json)
 }
 
 pub fn create_router() -> Router<AppState> {
