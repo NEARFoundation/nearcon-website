@@ -103,6 +103,7 @@ return (
       </Sidebar>
       <ContentContainer className={isForm ? "form" : ""}>
         {tabContent}
+        <Widget src={`${ownerId}/widget/Footer`} />
       </ContentContainer>
     </Content>
   </Container>
