@@ -1,12 +1,14 @@
 use axum::{
     debug_handler,
     extract::{Path, State},
-    http::StatusCode,
+    http::{HeaderMap, StatusCode},
     routing::{patch, post},
     Json, Router,
 };
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
+
+mod auth;
 
 #[derive(Clone)]
 pub struct AppState {
@@ -66,8 +68,10 @@ pub struct User {
 #[debug_handler(state = AppState)]
 async fn create(
     State(AppState { pool }): State<AppState>,
+    headers: HeaderMap,
     Json(data): Json<User>,
 ) -> Result<Json<User>, (StatusCode, String)> {
+    auth::authenticate(headers, &pool).await?;
     sqlx::query_as(
         r#"
         INSERT INTO
@@ -153,8 +157,10 @@ async fn create(
 async fn change_owner(
     State(AppState { pool }): State<AppState>,
     Path(public_key): Path<String>,
+    headers: HeaderMap,
     Json(data): Json<User>,
 ) -> Result<Json<User>, (StatusCode, String)> {
+    auth::authenticate(headers, &pool).await?;
     sqlx::query_as(
         r#"
         UPDATE
