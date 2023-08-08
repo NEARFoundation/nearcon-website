@@ -34,7 +34,7 @@ return (
   <Container>
     <h1>Register</h1>
     <p>
-      Early bird tickets are live for <span>$79</span>
+      Tickets are live for <span>$99</span>
     </p>
   </Container>
 );
