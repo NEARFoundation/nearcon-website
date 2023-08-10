@@ -1,12 +1,12 @@
 const ownerId = "nearcon23.near";
 
 const C1 = styled.span`
-    font-weight: bold;
+  font-weight: bold;
 `;
 
 const Container = styled.div`
-    padding: 8px 16px;
-    margin-left: 16px;
+  padding: 8px 16px;
+  margin-left: 16px;
 `;
 
 const LI = styled.li`

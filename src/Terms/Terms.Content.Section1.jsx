@@ -1,19 +1,19 @@
 const ownerId = "nearcon23.near";
 
 const Center = styled.p`
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
 `;
 
 const C1 = styled.span`
-    font-weight: bold;
+  font-weight: bold;
 `;
 
 const Container = styled.div`
-    padding: 8px 16px;
-    margin-left: 16px;
+  padding: 8px 16px;
+  margin-left: 16px;
 `;
 
 const LI = styled.li`
