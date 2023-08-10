@@ -68,6 +68,7 @@ const Visual = styled.div`
 
   img {
     width: 100%;
+    transform: scaleX(-1);
   }
 `;
 

@@ -98,9 +98,6 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const visual = "bafkreifvatnpked4a364btyyyjmn46jngd44msyjyml5ik2qyvbop55msu";
-const mapImage = (src) => `https://ipfs.near.social/ipfs/${src}`;
-
 return (
   <Container>
     <Text>
@@ -139,7 +136,7 @@ return (
     </Text>
     <Visual>
       <img
-        src={mapImage(visual)}
+        src="https://nearcon.s3.amazonaws.com/illia.png"
         alt="NEARCON Day 3 Layer 1 Stage Evolving NEAR Ecosystem Governence"
       />
     </Visual>
