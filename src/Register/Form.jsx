@@ -1,4 +1,5 @@
 const ownerId = "nearcon23.near";
+
 const countries = [
   "Afghanistan",
   "Albania",
@@ -660,6 +661,12 @@ return (
         },
       }}
     />
+    <span>
+      By clicking 'Submit' you agree to the <br />{" "}
+      <a href={`/${ownerId}/widget/Index?tab=terms`}>
+        NEARCON 2023 Terms & Conditions
+      </a>
+    </span>
     <SubmitButton href={url()} className={isValid() ? "" : "disabled"}>
       Submit
       <svg

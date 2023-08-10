@@ -1,5 +1,12 @@
 const ownerId = "nearcon23.near";
-const availableTabs = ["home", "register", "hackathon", "speakers"];
+const availableTabs = [
+  "home",
+  "register",
+  "hackathon",
+  "speakers",
+  "terms",
+  "ticket",
+];
 
 const getTab = (tab) => {
   if (!tab || !availableTabs.includes(tab)) {
@@ -23,10 +30,15 @@ const tabContentWidget = {
   register: "Register.Page",
   hackathon: "Hackathon.Page",
   speakers: "Speakers.Page",
+  terms: "Terms.Page",
+  ticket: "Ticket.Page",
 }[state.tab];
 
 const tabContent = (
-  <Widget src={`${ownerId}/widget/${tabContentWidget}`} props={{ update }} />
+  <Widget
+    src={`${ownerId}/widget/${tabContentWidget}`}
+    props={{ update, props }}
+  />
 );
 
 const ContentContainer = styled.div`
