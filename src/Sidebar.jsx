@@ -120,51 +120,52 @@ const speakersSelected = (
   </svg>
 );
 
-const NavItem = styled.a`
-  position: relative;
-  cursor: pointer;
-  padding: 0.5em;
-  margin: 0.25em 0;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 0.8em;
-  line-height: 1em;
-  color: #3a3f42;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75em;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    flex-direction: row;
-  }
-
-  &:hover {
-    color: #667085;
+const NavItem = styled.div`
+  & > a {
+    position: relative;
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 0.25em 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.8em;
+    line-height: 1em;
+    color: #3a3f42;
+    border-radius: 5px;
     text-decoration: none;
-    background-color: #f9fafb;
-  }
-
-  span {
+    transition: background-color 0.2s ease-in-out;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    gap: 0.75em;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      flex-direction: row;
+    }
+
+    &:hover {
+      color: #667085;
+      text-decoration: none;
+      background-color: #f9fafb;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
   }
 `;
 
 const navItem = ({ text, icon, id, iconSelected }) => (
-  <NavItem
-    href={`/${ownerId}/widget/Index?tab=${id}`}
-    onClick={() => props.update({ tab: id })}
-  >
-    {id === props.tab ? iconSelected : icon}
-    <span>{text}</span>
+  <NavItem>
+    <Link href={`/${ownerId}/widget/Index?tab=${id}`}>
+      {id === props.tab ? iconSelected : icon}
+      <span>{text}</span>
+    </Link>
   </NavItem>
 );
 

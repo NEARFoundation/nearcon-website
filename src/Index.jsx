@@ -16,12 +16,8 @@ const getTab = (tab) => {
   return tab;
 };
 
-State.init({
-  tab: getTab(props.tab),
-});
-
-const showSidebar = ![].includes(state.tab);
-const isForm = [].includes(state.tab);
+const showSidebar = ![].includes(props.tab);
+const isForm = [].includes(props.tab);
 
 const update = (state) => State.update(state);
 
@@ -32,7 +28,7 @@ const tabContentWidget = {
   speakers: "Speakers.Page",
   terms: "Terms.Page",
   ticket: "Ticket.Page",
-}[state.tab];
+}[props.tab];
 
 const tabContent = (
   <Widget
@@ -106,11 +102,11 @@ return (
       <Sidebar show={showSidebar}>
         <Widget
           src={`${ownerId}/widget/Sidebar`}
-          props={{ tab: state.tab, update, collapsible: true }}
+          props={{ tab: props.tab, update, collapsible: true }}
         />
         <Widget
           src={`${ownerId}/widget/Sidebar`}
-          props={{ tab: state.tab, update, collapsible: false }}
+          props={{ tab: props.tab, update, collapsible: false }}
         />
       </Sidebar>
       <ContentContainer className={isForm ? "form" : ""}>
