@@ -28,7 +28,7 @@ const tabContentWidget = {
   speakers: "Speakers.Page",
   terms: "Terms.Page",
   ticket: "Ticket.Page",
-}[props.tab];
+}[getTab(props.tab)];
 
 const tabContent = (
   <Widget
