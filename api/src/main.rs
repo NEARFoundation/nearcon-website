@@ -1,4 +1,7 @@
-use api::AppState;
+use std::sync::Arc;
+
+use api::{sync_updated, AppState};
+use tokio_cron::{Job, Scheduler};
 use tower::ServiceBuilder;
 use tower_http::{
     cors::{Any, CorsLayer},
@@ -17,6 +20,13 @@ async fn main() -> anyhow::Result<()> {
         .await?;
 
     sqlx::migrate!("./migrations").run(&pool).await?;
+
+    let mut scheduler = Scheduler::local();
+
+    let pool_clone = Arc::new(pool.clone());
+    scheduler.add(Job::named("sync-transfers", "*/60 * * * * *", move || {
+        sync_updated(pool_clone.clone())
+    }));
 
     let state = AppState { pool };
 
