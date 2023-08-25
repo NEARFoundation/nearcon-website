@@ -68,11 +68,11 @@ pub struct User {
     pub telegram: String,
     #[serde(default)]
     pub referral: String,
-    #[serde(default, skip)]
+    #[serde(default, skip_serializing)]
     pub public_key: String,
-    #[serde(default, skip)]
+    #[serde(default, skip_serializing)]
     pub private_key: String,
-    #[serde(default, skip)]
+    #[serde(default, skip_serializing)]
     #[sqlx(try_from = "String")]
     pub change_status: ChangeStatus,
 }
